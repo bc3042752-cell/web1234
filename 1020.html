@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>CSS動畫</title>
+<style>
+    div {
+        margin: Spx;
+    }
+@keyframes k1 {
+0% { background: linear-gradient(90deg,red,yellow 50%,blue);}
+13% { background: linear-gradient(90deg,red,yellow 70%,blue);}
+25% { background: linear-gradient(90deg,red,yellow 90%,blue);}
+37% { background: linear-gradient(90deg,red,yellow 70%,blue);}
+50% { background: linear-gradient(90deg,red,yellow 50%,blue);}
+63% { background: linear-gradient(90deg,red,yellow 30%,blue);}
+75% { background: linear-gradient(90deg,red,yellow 10%,blue);}
+87% { background: linear-gradient(90deg,red,yellow 30%,blue);}
+100% { background: linear-gradient(90deg,red,yellow 50%,blue);}
+}
+#a1 {
+height: 50px;
+width: 400px;
+animation: k1 1s infinite linear ;}
+@keyframes k2 {
+0% { background: linear-gradient(90deg,red,yellow 50%,blue);}
+13% { background: linear-gradient(90deg,red,yellow 70%,blue);}
+25% { background: linear-gradient(90deg,red,yellow 90%,blue);}
+37% { background: linear-gradient(90deg,red,yellow 70%,blue);}
+50% { background: linear-gradient(90deg,red,yellow 50%,blue);}
+63% { background: linear-gradient(90deg,red,yellow 30%,blue);}
+75% { background: linear-gradient(90deg,red,yellow 10%,blue);}
+87% { background: linear-gradient(90deg,red,yellow 30%,blue);}
+100% { background: linear-gradient(90deg,red,yellow 50%,blue);}
+}
+#a2 {
+height: 200px;
+width: 400px;
+animation: k2 1s infinite linear ;}
+@keyframes k3 {
+    0% {background: radial-gradient(red,yellow 50% ,white);}
+    25% {background: radial-gradient(red,yellow 70% ,white);}
+    50% {background: radial-gradient(red,yellow 50% ,white);}
+    75% {background: radial-gradient(red,yellow 30% ,white);}
+    100% {background: radial-gradient(red,yellow 50% ,white);}
+}
+#a3 {
+height: 200px;
+width: 400px;
+animation: k3 1s infinite linear ;}
+@keyframes k4 {}
+
+
+#a4 {
+height: 200px;
+width: 400px;
+animation: k4 1s infinite linear ;}
+</style>
+
+
+
+</head>
+<body>
+<div id="a1"></div>
+<div id="a2"></div>
+<div id="a3"></div>
+<div id="a4"></div>
+<div id="a5"></div>
+</body>
+</html>

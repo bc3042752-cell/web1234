@@ -2,16 +2,59 @@
 <head>
     <title>CSS漸層</title>
 <style>
+     div {
+        margin: Spx;
+    }
 #d1 {
 height: 100px;
 width: 400px;          /* to: top right bottom left*/
                        /* 0~360deg (degree) 由上開始順時針方向*/
 background: linear-gradient(to right,red,yellow);
 }
-#d {
+#d2 {
 height: 50px;
 width: 400px;
 background: linear-gradient(90deg right,red,orange,yellow,green,blue,indigo,violet);
+}
+#d3 {
+height: 50px;
+width: 400px;
+background: linear-gradient(90deg right,red,orange,yellow,green,blue,indigo,violet);
+}
+#d4 {
+height: 50px;
+width: 400px;
+background: linear-gradient(90deg right,red,orange,yellow,green,blue,indigo,violet);
+}
+#d5 {
+height: 50px;
+width: 400px;
+background: repeating-linear-gradient(90deg right,red,orange,yellow,green,blue,indigo,violet);
+}
+#d6 {
+height: 200px;
+width: 400px;          
+background: radial-gradient(red,yellow,white);
+}
+#d7 {
+height: 200px;
+width: 400px;          
+background: radial-gradient(red,yellow 50% ,white);
+}
+#d8 {
+height: 200px;
+width: 400px;          
+background: radial-gradient(red,yellow ,white);
+}
+#d10 {
+height: 200px;
+width: 200px;          
+background: conic-gradient(red,yellow ,blue);
+}
+#d11 {
+height: 200px;
+width: 200px;          
+background: conic-gradient(red,yellow ,blue);
 }
 </style>
 
@@ -22,5 +65,13 @@ background: linear-gradient(90deg right,red,orange,yellow,green,blue,indigo,viol
 <div id="d1"></div>
 <div id="d2"></div>
 <div id="d3"></div>
+<div id="d4"></div>
+<div id="d5"></div>
+<div id="d6"></div>
+<div id="d7"></div>
+<div id="d8"></div>
+<div id="d9"></div>
+<div id="d10"></div>
+<div id="d11"></div>
 </body>
 </html>
