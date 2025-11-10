@@ -5,10 +5,41 @@
             function hello( ) {
                 console.log("abcdef")
                 alert("你好")
+                
+                
             }
+
+        function sum(){
+         var n1=parseInt(document.getElementById("n1").value)
+         var n2=parseInt(document.getElementById("n2").value)
+         var n3=document.getElementById("n3")
+         var ans=document.getElementById("ans")
+         if(isNaN(N1)) {
+            n1=0;
+         }
+         n2=isNaN(n2)? 0 : n2;
+         n3.value=n1+n2;
+         ans.innerHTML=`答案是$(n1+n2)`;
+        }
+            
+        
         </script>
     </head>
     <body>
-        <button onclick="hello();">按我</button>
+        <input type="text" placeholder="輸入文字用"value="文字內容"><br> 
+        <input type="password" placeholder="輸入密碼用"><br>
+        <input type="number" placeholder="數字" min=0 max=20 step=2><br>
+        <input type="date" value="2025-11-10"><br>
+        <input type="datetime-local" value="2025-11-10T9:20"><Br>
+        <input type="color" value="#0000FF"><br>
+            <hr>
+
+
+
+
+
+
+
+        <button onclick="sum();">=</button> <input type="number" id="n3"><div id="ans"></div>
     </body>
 </html>
