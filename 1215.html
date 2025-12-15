@@ -1,0 +1,123 @@
+<html>
+<head>
+    <title></title>
+    <style>
+        #space {
+            width:800px;
+            height:800px;
+            background:url(pic/bg_stars.jpg);
+            animation: bg_move 2s linear infinite;
+        }
+        @keyframes bg_move {
+            0%{background-position-x: 0px;}
+            100%{background-position-y: 216px;}
+        }
+        #ship {
+            width:40px;
+            height:60px;
+            background: url(pic/ship.png);
+            background-size: 40px 60px;
+            position:absolute;
+            top: 740px;
+            left:380px;
+        }
+        .ufo {
+            width: 60px;
+            height: 40px;
+            position: absolute;
+        }
+        .bullet {
+            width:4px;
+            height:6px;
+            background-color: red;
+            position: absolute;
+
+        }
+
+    </style>
+    <script>
+        function ship_move() {
+            if(ship.posX > 0 && dir["ArrowLeft"]) {
+                ship.posX--;
+            } else if(ship.posX = ship.w < space.w && dir["ArrowRight"]) {
+                ship.posX++;
+            }
+            ship.style.left=ship.posX+"px";
+        }
+        function game_init() {
+            dir={"ArrowLeft":0,"ArrowRight":0,"ArrowUp":0,"ArrowDown":0};
+            space={w:800,h:800};
+            ship=document.getElementById("ship");
+            ship.w=40;
+            ship.h=60;
+            ship.posX=(space.w-ship.w)/2;
+            ship.posY=space.h-ship.h;
+            ship.style.left=ship.posX+"px";
+            ship.style.top=ship.posY+"px";
+            ship.move=setInterval(ship_move,5);
+
+
+        }
+        function mykeydown() {
+            event.preventDefault();
+            if(event.key == " ") {
+                shoot();
+            } else if(Object.keys(dir).includes(event.key)) {
+
+            }
+            dir[event.key]=1;
+        }
+        function mykeyup() {
+            event.preventDefault();
+            dir[event.key]=0;
+        }
+        function getRand(min,max) {
+            return Math.floor(Math.random() * (max-min+1)) +min;
+        }
+        function ufo_move(ufo) {
+            if(ufo.posY +ufo.h > spaces.h) {
+                clearInterval(ufo.move);
+                ufo.remove();
+                return;
+            }
+            ufo.posY++;
+            ufo.posX += getRand(-2,2);
+            if(ufo.posX < 0) {
+                ufo.posX=0;
+            } else if(ufo.posX+ufo.w >spaces.w) {
+                ufo.posX = spaces.w-ufo.w;
+            }
+            ufo.style.left=ufo.posX+"px";
+            ufo.style.top=ufo.posY+"px";
+        }
+        function ufo_create() {
+            var u=document.createElement("img");
+            u.src="pic/ufo.png";
+            u.className="ufo";
+            u.w=60;
+            u.h=40;
+            u.posX=getRand(0,space.w - u.w);
+            u.posY=getRand(0,10);
+            document.getElementById("space").appendChild(u);
+            u.style.left=u.posX+"px";
+            u.style.top=u.posY+"px";
+            u.move=setInterval(ufo_move,20,u)
+            
+        }
+        function bullet_move(bt) {
+
+        }
+        function shoot() {
+            var b=document.createElement("div");
+            b.className="bullet";
+        }
+
+    </script>
+</head>
+<body onload="page_init()" onkeydown="mykeydown()" onkeyup="mykeyup()">
+    <div id="space">
+        <div class="bullet"></div>
+        <div id="ship"></div>
+    </div>
+</body>    
+</html>
