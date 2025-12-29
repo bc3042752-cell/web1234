@@ -5,7 +5,7 @@
         #space {
             width:800px;
             height:800px;
-            background:url(pic/bg_stars.jpg);
+            background:url("pic/bg_stars.jpg");
             animation: bg_move 2s linear infinite;
         }
         @keyframes bg_move {
@@ -152,10 +152,14 @@
             b.posX=ship.posX+"px";
             b.posY=ship.posY+"px";
         }
+        function show_ranking() {
+            var ranking
+        }
 
     </script>
 </head>
 <body onload="game_init()" onkeydown="mykeydown()" onkeyup="mykeyup()">
+    <div style="display: inline-block; width:800px">
     <div id="space">
         <div class="bullet"></div>
         <div id="ship"></div>
@@ -163,5 +167,8 @@
     <div id="status" style="width:800px;">
         <span>得分:</span>
     </div>
+</div>
+<div style="display:inline-block; height:820px"><h1>排行榜</h1></div>
+</span>
 </body>    
 </html>

@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>11409</title>
+    <style>
+        #map {
+        width: 800px;
+        height: 800px;
+        background:url("pic/grass.jpg");
+        background-size: 30%;
+        animation: bg_move 3s linear infinite;
+        position: relative;
+        }
+        @keyframes bg_move {
+                0% { background-position: 0% 0%;}
+                30% { background-position: 5px 0%;}
+                100%{ background-position: 0% 0%;}
+            }
+        #man {
+            width:48px;
+            height:72px;
+            background-image: url(pic/sprite.png);
+            background-position: -288px -288px;
+                animation: walking 1s steps(3) infinite;
+                position: absolute;
+                left: 376px;
+                top: 364px;
+
+            }
+            @keyframes walking {
+                0% { background-position-x: -288px;}
+                100% {background-position-x: -432px;}
+        }
+    </style>
+    <script>
+    
+    </script>
+    </head>
+    <body>
+        <div id="map"></div>
+        <div id="man"></div>
+
+    </body>
+</html>
