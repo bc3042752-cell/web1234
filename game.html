@@ -30,14 +30,99 @@
                 0% { background-position-x: -288px;}
                 100% {background-position-x: -432px;}
         }
+        #bullet {
+            width:4px;
+            height:6px;
+            background-color: red;
+            position: absolute;
+        }
+        #ufo {
+            width: 60px;
+            height: 40px;
+            position: absolute;
+        }
+        
     </style>
     <script>
+        function mykeyup() {
+            event.preventDefault();
+            dir[event.key]=0;
+        }
+        function mykeydown() {
+                event.preventDefault();
+                var man=document.getElementById("man");
+                if(event.key=="ArrowDown") {
+                    man.style.backgroundPositionY="-288px";
+                    if(man.posY < 728)man.posY++;
+                } else if(event.key=="ArrowLeft") {
+                    man.style.backgroundPositionY="-360px";
+                    if(man.posX > 0)man.posX--;
+                } else if(event.key=="ArrowRight") {
+                    man.style.backgroundPositionY="-432px";
+                    if(man.posX < 752)man.posX++;
+                } else if(event.key=="ArrowUp") {
+                    man.style.backgroundPositionY="-504px";
+                    if(man.posY > 0)man.posY--;
+            }
+            man.style.left=man.posX+"px";
+            man.style.top=man.posY+"px";
+            if(event.key == " ") {
+                shoot();
+            }
+            }
+            function page_init() {
+                var role=document.getElementById("man");
+                role.posX=376;
+                role.posY=364;
+            }
+            function getRand(min,max) {
+            return Math.floor(Math.random() * (max-min+1)) +min;
+        }
+        function ufo_move(ufo) {
+            if(ufo.posY +ufo.h > map.h) {
+                clearInterval(ufo.move);
+                ufo.remove();
+                return;
+            }
+            ufo.posY++;
+            ufo.posX += getRand(-2,2);
+            if(ufo.posX < 0) {
+                ufo.posX=0;
+            } else if(ufo.posX+ufo.w >spaces.w) {
+                ufo.posX = spaces.w-ufo.w;
+            }
+            ufo.style.left=ufo.posX+"px";
+            ufo.style.top=ufo.posY+"px";
+        }
+        function ufo_create(u) {
+            var u=document.createElement("img");
+            u.src="pic/ufo.png";
+            u.className="ufo";
+            u.w=60;
+            u.h=40;
+            u.posX=getRand(0,space.w - u.w);
+            u.posY=getRand(0,10);
+            document.getElementById("map").appendChild(u);
+            u.style.left=u.posX+"px";
+            u.style.top=u.posY+"px";
+            u.move=setInterval(ufo_move,20,u)
+        }
+        function shoot() {
+            var b=document.createElement("div");
+            b.className="bullet";
+            b.w=4;
+            b.h=6;
+            b.posX=man.posX+"px";
+            b.posY=man.posY+"px";
+        }
+
     
     </script>
     </head>
-    <body>
-        <div id="map"></div>
+    <body onload="page_init();" onkeydown="mykeydown();" onkeyup="mykeyup()">
+        <div id="map">
         <div id="man"></div>
-
+        <div class="bullet"></div>
+        </div>
     </body>
 </html>
